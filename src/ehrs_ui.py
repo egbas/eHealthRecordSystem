@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox, scrolledtext
 
 from src.user import login
-from src.patient_note import (
+from src.patient import (
     load_patients, load_encounters,
     add_patient, remove_patient, retrieve_patient,
     count_visits_on_date, count_visits_per_patient_on_date,
