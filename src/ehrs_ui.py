@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk, messagebox, scrolledtext
 
-from src.user import validate_login
+from src.user import login
 from src.patient_note import (
     load_patients, load_encounters,
     add_patient, remove_patient, retrieve_patient,
@@ -79,7 +79,7 @@ class App(tk.Tk):
         frame_cls(self._container, self).pack(fill="both", expand=True)
 
     def login(self, username, password):
-        success, result = validate_login(username, password)
+        success, result = login(username, password)
         if success:
             self.current_user = result
             self.patients = load_patients()
