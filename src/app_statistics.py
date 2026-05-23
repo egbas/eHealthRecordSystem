@@ -65,32 +65,6 @@ def monitor_workload() -> str:
     return "\n".join(lines)
 
 
-def count_encounters_per_patient(encounters: list) -> str:
-   
-    counts = Counter(encounter["patient_id"] for encounter in encounters)
-    lines = ["Encounters Per Patient", "=" * 40]
-    for pid, cnt in sorted(counts.items()):
-        lines.append(f"  {pid}: {cnt} encounter(s)")
-    if not counts:
-        lines.append("  No data available.")
-    return "\n".join(lines)
-
-
-def count_encounters_by_department(encounters: list) -> str:
-    
-    departments = load_csv(DEPARTMENTS_FILE)
-    dept_names = {dept["department_id"]: dept["name"] for dept in departments}
-
-    counts = Counter(enc["department_id"] for enc in encounters)
-    lines = ["Encounters By Department", "=" * 40]
-    for did, cnt in sorted(counts.items()):
-        name = dept_names.get(did, did)
-        lines.append(f"  {name} ({did}): {cnt} encounter(s)")
-    if not counts:
-        lines.append("  No data available.")
-    return "\n".join(lines)
-
-
 def generate_key_statistics(patients: dict, encounters: list) -> str:
     
     if not patients:

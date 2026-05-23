@@ -28,8 +28,6 @@ ROLE_PERMISSIONS = {
     ],
     ROLE_ADMIN: [
         "count_visits",
-        "count_encounters_per_patient",
-        "count_encounters_by_department",
         "monitor_workload",
     ],
     ROLE_MANAGEMENT: [
